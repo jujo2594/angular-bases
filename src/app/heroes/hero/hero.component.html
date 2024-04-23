@@ -1,0 +1,35 @@
+<h1>{{ name }}</h1>
+<dl>
+  <td>Nombre:</td>
+  <dd> {{ name }} </dd>
+
+  <td>Edad:</td>
+  <dd> {{ age }} </dd>
+
+  <td>Método:</td>
+  <dd> {{ getHeroDescription() }} </dd>
+
+  <td>Capitalizado:</td>
+  <dd> {{ capitalizeName }} </dd>
+</dl>
+
+<!-- La directiva "*ngIf" funciona como un condicional dentro de nuestro HTML, cuando se cumple la expresion("true") crea el componente en caso contrario("false") no crea el componente -->
+
+<!-- En el código a continuación, el primer boton se mostrara cuando el valor de la variable "name" sea diferente de "Spiderman" y el segundo boton cuando la variable "age" sea diferente de "25" -->
+
+<button class="btn btn-primary mx-2"
+*ngIf = " name !== 'Spiderman' "
+(click)="changeHero()">
+Cambiar nombre
+</button>
+
+<button class="btn btn-primary"
+*ngIf = " age !== 25 "
+(click)="changeAge()">
+Cambiar edad
+</button>
+
+<button class="btn btn-primary mx-2"
+(click)="resetInfo()">
+RESET
+</button>

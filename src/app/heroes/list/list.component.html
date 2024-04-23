@@ -1,0 +1,27 @@
+<h3>Listado de Heroes</h3>
+
+<!-- Aca se usa la estructura "*ngIf - else", con está sintaxis se está indicando que en caso de que se cumpla la condicion se muestre el heroe que se borro "deletedHero", pero en caso de que no halla un heroe borrado se muestre el contenido de la etiqueta "<ng-template>" marcado con la referencia "#nothingWasDeleted" -->
+
+<!-- "#nothingWasDeleted" es une referencia local dentro de angular -->
+<div *ngIf="deletedHero; else nothingWasDeleted">
+  <h3 >Heroe Borrado: <small class="text-danger">{{ deletedHero }}</small> </h3>
+</div>
+
+
+<!-- La etiqueta <ng-template> es como un <div> creado desde angular pero que no existe o no se creará dentro de mi estructura de HTML. El <ng-template> no se construye por lo tanto está a la espera de como comportarse -->
+<ng-template #nothingWasDeleted>
+  <h3>No ha borrado nada</h3>
+</ng-template>
+
+
+
+<button
+*ngIf="heroNames.length > 0"
+(click)="removeLastHero()"
+class="btn btn-outline-danger">
+Borrar Ultimo Heroe</button>
+
+<ul class="mt-2 list-group">
+  <li *ngFor="let name of heroNames"
+  class="list-group-item ">{{ name }}</li>
+</ul>
